@@ -8,11 +8,15 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tencent.smtt.sdk.WebSettings;
-import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
+//import com.tencent.smtt.sdk.WebSettings;
+//import com.tencent.smtt.sdk.WebView;
 import com.vincyan.ncextensions.base.MPermissionsActivity;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 
@@ -20,23 +24,44 @@ import com.xys.libzxing.zxing.activity.CaptureActivity;
 public class WebViewActivity extends MPermissionsActivity {
 
     private WebView webView;
+    private ProgressBar pg1;
     public static final String TAG = "WebViewActivity";
     public static final String URL1 = "http://qll.jiahetianlang.com/mobile/";
     public static final String URL = "http://www.cst01.com";
+    private TextView progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view2);
         webView = (WebView) findViewById(R.id.wv);
+        pg1=(ProgressBar) findViewById(R.id.progressBar1);
+        progress = (TextView) findViewById(R.id.progress);
 
-//        initSettings();
-//        webView.addJavascriptInterface(this, "android");
+        initSettings();
+        webView.addJavascriptInterface(this, "android");
 //        webView.loadUrl("file:///android_asset/scan.html");
+        webView.loadUrl(URL);
 
         //为webview设置监听
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(URL);
+        webView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                // TODO 自动生成的方法存根
+
+                if(newProgress==100){
+                    pg1.setVisibility(View.GONE);//加载完网页进度条消失
+                    progress.setVisibility(View.GONE);//加载完网页进度条消失
+                }
+                else{
+                    pg1.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
+                    progress.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
+                    progress.setText(newProgress+"%");//设置进度值
+                }
+
+            }
+        });
+
 
 
     }

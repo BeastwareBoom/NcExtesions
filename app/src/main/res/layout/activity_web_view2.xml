@@ -1,16 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_web_view2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.vincyan.ncextensions.WebViewActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".WebViewActivity"
+              android:orientation="vertical">
 
-    <com.tencent.smtt.sdk.WebView
-        android:id="@+id/wv"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" >
 
+        <WebView
+            android:id="@+id/wv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-</RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/pg"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/progress"
+            android:textSize="14sp"
+            android:textColor="#FF47D7FF"
+            android:text="0%"
+            android:visibility="gone"
+            android:layout_marginTop="4dp"
+            android:layout_below="@+id/progressBar1"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</LinearLayout>

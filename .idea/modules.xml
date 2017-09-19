@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NcExtensions.iml" filepath="$PROJECT_DIR$/NcExtensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NcExtesions.iml" filepath="$PROJECT_DIR$/NcExtesions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/googleprogressbar/googleprogressbar.iml" filepath="$PROJECT_DIR$/googleprogressbar/googleprogressbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libzxing/libzxing.iml" filepath="$PROJECT_DIR$/libzxing/libzxing.iml" />
+    </modules>
+  </component>
+</project>

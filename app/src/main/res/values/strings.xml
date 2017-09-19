@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NcExtensions</string>
+    <string name="description">使用OkHttpUtils请求网络数据，设置当前Context对象为tag，在onDestroy中根据tag取消请求，
+        避免activity销毁后view不存在出现空指针异常</string>
+
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在刷新</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">上拉加载更多</string>
+    <string name="xlistview_footer_hint_normal2">点击加载更多</string>
+    <string name="xlistview_footer_hint_ready">松开加载更多</string>
+    <string name="xlistview_footer_hint_loading">正在加载更多...</string>
+    <string name="xlistview_footer_hint_complete">已加载完全部</string>
+
+</resources>

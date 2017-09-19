@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>安卓登录</title>
+    <style>
+        #loginBtn{
+            border:1px solid gray;
+            border-radius:4px;
+            padding:1px;
+        }
+    
+    </style>
+
+    <script>
+
+        function _login(){
+
+            var username = document.getElementById('username').value;
+            var pwd = document.getElementById('pwd').value;
+
+            var _type = typeof window.android;
+
+            if(_type !== 'undefined') {
+                //安卓定义的方法
+                window.android.login(_type,username,pwd);
+            }else{
+                alert('username = '+username+' , pwd = '+pwd);
+            }
+
+        }
+        
+    
+    </script>
+</head>
+<body>
+
+<form id="" action="">
+    用户名：<input type="text" name="username" id="username"/><br>
+    密&nbsp;码：<input type="password" name="pwd" id="pwd"/><br><br>
+
+    <a onclick="_login()">
+        <span id="loginBtn">点我登录</span>
+    </a>
+</form>
+</body>
+</html>

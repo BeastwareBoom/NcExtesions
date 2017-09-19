@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vincyan.ncextensions.view.StretchableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                     xmlns:tools="http://schemas.android.com/tools"
+                                                     android:id="@+id/activity_main2"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     android:scrollbars="none"
+                                                     tools:context="com.vincyan.ncextensions.PermissionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="newsList"
+            android:text="新闻列表"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick1"
+            android:text="打电话"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick2"
+            android:text="写SD卡"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick3"
+            android:text="拍照"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:onClick="startSpannableAct"
+            android:text="Hello World!"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startListViewAct"
+            android:text="XListView和EditText"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="videoActivity"
+            android:text="VideoView"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="shareToWX"
+            android:text="加载网页"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="selectImageActivity"
+            android:text="选择多张图片并分享"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showFileChooser"
+            android:text="选任意格式文件并得到路径"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="customizeKeyboard"
+            android:text="自定义键盘"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startSelf"
+            android:text="启动当前activity"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startOkHttpUtils"
+            android:text="OkHttpUtils测试"
+            android:textAllCaps="false"/>
+
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="qrScan"-->
+            <!--android:text="二维码扫描"-->
+            <!--android:textAllCaps="false"/>-->
+
+
+    </LinearLayout>
+</com.vincyan.ncextensions.view.StretchableScrollView>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>扫码</title>
     <script type="text/javascript" src="jquery-1.8.2.js"></script>
 
@@ -27,25 +27,53 @@
     		font-size: 14px;
     		color: darkgray;
     	}
+
     </style>
     <script type="text/javascript">
-        function scan(){
-            //用户token，登录标识
-            var token = "1000111101010001";
 
-            //在安卓设备上点击时
+        //针对Android客户端的逻辑
+        $(function(){
+            //页面加载完成后，获取window.android属性
             if(window.android!=undefined){
-                window.android.scan(token)
+                //获取客户端类型，如果是android，显示扫描按钮
+                var clientType = window.android.getClientType();
+            }
+
+            var searchStr = location.search;
+            window.android.print(searchStr)
+/*
+            //由于searchStr属性值包括“?”，所以除去该字符
+            searchStr = searchStr.substr(1);
+
+            //将searchStr字符串分割成数组，数组中的每一个元素为一个参数和参数值
+            var params = searchStr.split("&");
+
+
+            //获得第一个参数和值
+            var usernameParam = params[0].split("=");
+            var passwordParam = params[1].split("=");
+
+            window.android.print(usernameParam[0])
+            window.android.print(usernameParam[1])
+
+            window.android.print(passwordParam[0])
+            window.android.print(passwordParam[1])
+        })
+*/
+        function scan(){
+            if(window.android!=undefined){
+                window.android.scan(window.android.getClientType())
             }
         }
+
     </script>
 
 </head>
 <body>
-    <div class="wrapper">
-        <img src="scan.png" id="scanButton" onclick="scan()"/>
-    </div>
+<div class="wrapper">
+    <img src="scan.png" id="scanButton" onclick="scan()"/>
+</div>
 
-    <div class="desc">点击扫描</div>
+<div class="desc">点击扫描</div>
 </body>
 </html>

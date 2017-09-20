@@ -46,6 +46,7 @@ public class TextViewSpannableActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
+    @SuppressWarnings("ResourceType")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

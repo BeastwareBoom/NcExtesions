@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.vincyan.ncextensions.base.MPermissionsActivity;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 
+import static android.R.attr.value;
+
 //import com.tencent.smtt.sdk.WebSettings;
 //import com.tencent.smtt.sdk.WebView;
 
@@ -169,13 +171,14 @@ public class WebViewActivity extends MPermissionsActivity {
         if (data == null || resultCode != RESULT_OK) {
             return;
         }
-
         Bundle bundle = data.getExtras();
         String scanResult = bundle.getString("result");
         Log.d(TAG, "onActivityResult: scanResult = " + scanResult);
 
-        if (scanResult != null) {
+        if (scanResult != null && scanResult.startsWith("http")) {
             webView.loadUrl(scanResult);
+        } else {
+            Toast.makeText(this, scanResult, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -189,10 +192,16 @@ public class WebViewActivity extends MPermissionsActivity {
                 + "\nusername:" + username + "\npassword:" + password, Toast.LENGTH_SHORT).show();
     }
 
-    //定义的方法
+    //微信支付
     @JavascriptInterface
-    public void print(String value) {
-        Log.d(TAG, "print: value = " + value);
+    public void wxpay() {
+        Toast.makeText(this, "微信支付", Toast.LENGTH_SHORT).show();
+    }
+
+    //支付宝支付
+    @JavascriptInterface
+    public void alipay() {
+        Toast.makeText(this, "支付宝支付", Toast.LENGTH_SHORT).show();
     }
 
     private long time;
@@ -206,7 +215,9 @@ public class WebViewActivity extends MPermissionsActivity {
             Log.d(TAG, "onKeyDown: url = " + url);
             if (url.equals(URL)) {
                 if (System.currentTimeMillis() - time < 3000) {
-                    return super.onKeyDown(keyCode, event);
+                    finish();
+                    android.os.Process.killProcess(android.os.Process.myPid());
+//                    return super.onKeyDown(keyCode, event);
                 } else {
                     Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
                     time = System.currentTimeMillis();

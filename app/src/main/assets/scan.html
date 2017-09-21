@@ -28,43 +28,46 @@
     		color: darkgray;
     	}
 
+    	#wxpay{
+    	    padding:10px;
+    	}
+
+    	#alipay{
+    	    padding:10px;
+    	}
+
+
+
+
     </style>
     <script type="text/javascript">
-
-        //针对Android客户端的逻辑
-        $(function(){
-            //页面加载完成后，获取window.android属性
-            if(window.android!=undefined){
-                //获取客户端类型，如果是android，显示扫描按钮
-                var clientType = window.android.getClientType();
-            }
-
-            var searchStr = location.search;
-            window.android.print(searchStr)
-/*
-            //由于searchStr属性值包括“?”，所以除去该字符
-            searchStr = searchStr.substr(1);
-
-            //将searchStr字符串分割成数组，数组中的每一个元素为一个参数和参数值
-            var params = searchStr.split("&");
-
-
-            //获得第一个参数和值
-            var usernameParam = params[0].split("=");
-            var passwordParam = params[1].split("=");
-
-            window.android.print(usernameParam[0])
-            window.android.print(usernameParam[1])
-
-            window.android.print(passwordParam[0])
-            window.android.print(passwordParam[1])
-        })
-*/
+        //扫描方法
         function scan(){
+            //页面加载完成后，获取window.android属性
+            //获取客户端类型，如果是android，显示扫描按钮
             if(window.android!=undefined){
                 window.android.scan(window.android.getClientType())
             }
         }
+
+        //微信支付
+        function wxpay(){
+            if(window.android!=undefined){
+                //传递订单等参数...
+                window.android.wxpay();
+            }
+        }
+
+        //支付宝支付
+        function alipay(){
+            if(window.android!=undefined){
+                //传递订单等参数...
+                window.android.alipay();
+            }
+        }
+
+
+
 
     </script>
 
@@ -75,5 +78,20 @@
 </div>
 
 <div class="desc">点击扫描</div>
+
+<hr/>
+
+<center><h3>支付方式</h3></center>
+<div class="payments">
+    <!--<div id="wxpay" onclick="wxpay()">微信支付</div>-->
+    <!--<div id="alipay" onclick="alipay()">支付宝支付</div>-->
+    <a href="javascript:void(0)" onclick="wxpay()">
+        <div id="wxpay">微信支付</div>
+    </a>
+    <a href="javascript:void(0)" onclick="alipay()">
+        <div id="alipay">支付宝支付</div>
+    </a>
+</div>
+
 </body>
 </html>
